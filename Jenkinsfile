@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
       ORG               = 'teratestorg'
-      APP_NAME          = 'bin'
+      APP_NAME          = 'restyserv'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
     }
     stages {
