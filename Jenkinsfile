@@ -51,7 +51,7 @@ pipeline {
             // TODO
             //sh "mvn versions:set -DnewVersion=\$(cat VERSION)"
           }
-          dir ('./charts/bin') {
+          dir ('./charts/restyserv') {
             container('gradle') {
               sh "make tag"
             }
@@ -70,7 +70,7 @@ pipeline {
           branch 'master'
         }
         steps {
-          dir ('./charts/bin') {
+          dir ('./charts/restyserv') {
             container('gradle') {
               sh 'jx step changelog --version v\$(cat ../../VERSION)'
 
