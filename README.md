@@ -7,3 +7,5 @@ Run locally with `gradlew bootRun`
 Test via http://localhost:8080/greeting
 
 Health check at http://localhost:8080/actuator/health
+
+Credit: thanks to https://github.com/Cervator for the contribution of this quickstart
