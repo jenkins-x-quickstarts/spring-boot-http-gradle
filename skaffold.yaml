@@ -3,7 +3,7 @@ kind: Config
 build:
   tagPolicy:
     envTemplate:
-      template: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/teratestorg/bin:{{.VERSION}}"
+      template: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/teratestorg/restyserv:{{.VERSION}}"
   artifacts:
   - imageName: changeme
     workspace: .
@@ -17,15 +17,15 @@ profiles:
   build:
     tagPolicy:
       envTemplate:
-        template: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/teratestorg/bin:{{.DIGEST_HEX}}"
+        template: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/teratestorg/restyserv:{{.DIGEST_HEX}}"
     artifacts:
     - docker: {}
     local: {}
   deploy:
     helm:
       releases:
-      - name: bin
-        chartPath: charts/bin
+      - name: restyserv
+        chartPath: charts/restyserv
         setValueTemplates:
-          image.repository: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/teratestorg/bin"
+          image.repository: "{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST}}:{{.JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT}}/teratestorg/restyserv"
           image.tag: "{{.TAG}}"
