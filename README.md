@@ -3,3 +3,7 @@ Minimal Jenkins X demo repo based on https://spring.io/guides/gs/consuming-rest/
 While the original example offers both Maven and Gradle the idea with this demo was to focus purely on Gradle, exercising a new Jenkins X Gradle build pack.
 
 Run locally with `gradlew bootRun`
+
+Test via http://localhost:8080/greeting
+
+Health check at http://localhost:8080/actuator/health
